@@ -2,39 +2,39 @@
 ## Перенос ноды 
 
 
-### Команды на текущем сервере
+### 1 Команды на текущем сервере
 
-#### Остановите свой валидатор в JS.aresprotocol.io
+#### 1.1 Остановите свой валидатор в JS.aresprotocol.io
 
-#### Остановить docker предыдущей программы и данных
+#### 1.2 Остановите docker
 ```
 docker stop ares_gladios && docker cp ares_gladios:/root/.local/share/gladios-node ./ares-chain-data
 ```
 
-#### Удалите предыдущую программу docker
+#### 1.3 Удалите docker
 ```
 docker rm ares_gladios && docker rmi aresprotocollab/ares_gladios:latest
 ```
 
 
-### Команды на новом сервере
+### 2 Команды на новом сервере
 
-#### Установите обновления
+#### 2.1 Установите обновления
 ```
 sudo apt update && sudo apt -y upgrade
 ```
 
-#### Установка Docker
+#### 2.2 Установка Docker
 ```
 apt install docker.io
 ```
 
-#### Вытащите последний образ программы
+#### 2.3 Вытащите последний образ программы
 ```
 docker pull aresprotocollab/ares_gladios:latest
 ```
 
-#### Установка Docker
+#### 2.4 Установка Docker
 ```
 docker run -d --name ares_gladios -p 9944:9944 -v `pwd`/ares-chain-data:/data aresprotocollab/ares_gladios:latest gladios-node --name your-name --chain gladios --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0' --warehouse http://api.aresprotocol.io  --validator
 ```
@@ -44,7 +44,7 @@ docker run -d --name ares_gladios -p 9944:9944 -v `pwd`/ares-chain-data:/data ar
 docker run -d --name ares_gladios -p 9944:9944 -v `pwd`/ares-chain-data:/data aresprotocollab/ares_gladios:latest gladios-node --name ares_СryptoHelp_0x982293a6ABA77E8dD4B18E35FA7eE022BD0c2ce9 --chain gladios --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0' --warehouse http://api.aresprotocol.io  --validator
 ```
 
-#### Настройка сеансовых ключей
+#### 2.5 Настройка сеансовых ключей
 ```
 docker exec -it ares_gladios bash -c "apt update && apt install -y curl && curl -X POST http://localhost:9933 -H 'Content-Type: application/json' -d '{\"id\":1, \"jsonrpc\":\"2.0\", \"method\": \"author_rotateKeys\"}'"
 ```
