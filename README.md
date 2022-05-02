@@ -6,12 +6,12 @@
 
 #### 1.1 Остановите свой валидатор в JS.aresprotocol.io
 
-#### 1.2 Остановите docker
+#### 1.2 Остановить docker
 ```
 docker stop ares_gladios && docker cp ares_gladios:/root/.local/share/gladios-node ./ares-chain-data
 ```
 
-#### 1.3 Удалите docker
+#### 1.3 Удалить docker
 ```
 docker rm ares_gladios && docker rmi aresprotocollab/ares_gladios:latest
 ```
@@ -19,22 +19,22 @@ docker rm ares_gladios && docker rmi aresprotocollab/ares_gladios:latest
 
 ### 2 Команды на новом сервере
 
-#### 2.1 Установите обновления
+#### 2.1 Установить обновления
 ```
 sudo apt update && sudo apt -y upgrade
 ```
 
-#### 2.2 Установка Docker
+#### 2.2 Установить Docker
 ```
 apt install docker.io
 ```
 
-#### 2.3 Вытащите последний образ программы
+#### 2.3 Вытащить последний образ программы
 ```
 docker pull aresprotocollab/ares_gladios:latest
 ```
 
-#### 2.4 Установка Docker
+#### 2.4 Установка ноды по методу Docker (можно выбрать альтернативные методы, см. официальный гайд, ссылка ниже)
 ```
 docker run -d --name ares_gladios -p 9944:9944 -v `pwd`/ares-chain-data:/data aresprotocollab/ares_gladios:latest gladios-node --name your-name --chain gladios --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0' --warehouse http://api.aresprotocol.io  --validator
 ```
