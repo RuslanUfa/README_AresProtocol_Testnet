@@ -79,6 +79,4 @@ docker exec -it ares_gladios bash -c "apt update && apt install -y curl && curl 
 ### Официальный гайд на обновление
 [Medium.com/Upgraded Node](https://aresprotocollab.medium.com/gladios-upgraded-node-commands-and-added-online-identification-penalty-mechanisms-for-validators-4650793d8ad0)
 
-s
-
 .. image:: https://img.shields.io/github/stars/RuslanUfa/README_AresProtocol_Testnet?style=social   :alt: GitHub Repo stars
