@@ -1,21 +1,19 @@
 # Ares Protocol
 ## Перенос ноды 
 
+#### Для начала остановите свой валидатор в JS.aresprotocol.io
 
 ### 1 Команды на текущем сервере
 
-#### 1.1 Остановите свой валидатор в JS.aresprotocol.io
-
-#### 1.2 Остановить docker
+#### 1.1 Остановить docker
 ```
 docker stop ares_gladios && docker cp ares_gladios:/root/.local/share/gladios-node ./ares-chain-data
 ```
 
-#### 1.3 Удалить docker
+#### 1.2 Удалить docker
 ```
 docker rm ares_gladios && docker rmi aresprotocollab/ares_gladios:latest
 ```
-
 
 ### 2 Команды на новом сервере
 
@@ -39,9 +37,14 @@ docker pull aresprotocollab/ares_gladios:latest
 docker run -d --name ares_gladios -p 9944:9944 -v `pwd`/ares-chain-data:/data aresprotocollab/ares_gladios:latest gladios-node --name your-name --chain gladios --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0' --warehouse http://api.aresprotocol.io  --validator
 ```
 
-#### (Пример установки)
+#### Пример установки: вместо "your-name" вводите свои данные "ares_username_BSC address" (код не копировать, это пример)
 ```
-docker run -d --name ares_gladios -p 9944:9944 -v `pwd`/ares-chain-data:/data aresprotocollab/ares_gladios:latest gladios-node --name ares_СryptoHelp_0x982293a6ABA77E8dD4B18E35FA7eE022BD0c2ce9 --chain gladios --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0' --warehouse http://api.aresprotocol.io  --validator
+docker run -d --name ares_gladios -p 9944:9944 -v `pwd`/ares-chain-data:/data aresprotocollab/ares_gladios:latest gladios-node --name ares_СryptoHelp2_0x782293a6ABA77E8dD4B18E35FA7eE022BD0c2cf8 --chain gladios --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0' --warehouse http://api.aresprotocol.io  --validator
+```
+
+#### Посмотреть логи
+```
+docker logs -f ares_gladios  -n 1000
 ```
 
 #### 2.5 Проверить статус развертывания
@@ -67,16 +70,11 @@ docker exec -it ares_gladios bash -c "apt update && apt install -y curl && curl 
 Войдите на страницу ставок и перейдите на вкладку «Действия с учетной записью», Выберите учетную запись, которой вы хотите управлять, нажмите «Подтвердить» и на всплывающей странице установите процент комиссии вознаграждения
 ```
 
-#### 2.9 Ваша нода появитя в списке во вкладке «Ожидание»
+#### 2.9 Ваша нода появитя в списке во вкладке «Ожидание», осталось только подождать
 
-### Посмотреть логи
-```
-docker logs -f ares_gladios  -n 1000
-```
 
 ### Официальный гайд по установке новой ноды (часть 3/3)
 [Medium.com/Second phase/third part](https://aresprotocollab.medium.com/public-deployment-of-gladios-testnet-nodes-second-ohase-third-part-807a1e098423)
-
 
 ### Официальный гайд на обновление
 [Medium.com/Upgraded Node](https://aresprotocollab.medium.com/gladios-upgraded-node-commands-and-added-online-identification-penalty-mechanisms-for-validators-4650793d8ad0)
