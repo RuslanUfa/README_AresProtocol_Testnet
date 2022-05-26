@@ -34,12 +34,12 @@ docker pull aresprotocollab/ares_gladios:latest
 
 #### 2.4 Запуск ноды по методу Docker (можно выбрать альтернативные методы, см. официальный гайд, ссылка ниже)
 ```
-docker run -d --name ares_gladios -p 9944:9944 -v `pwd`/ares-chain-data:/data aresprotocollab/ares_gladios:latest gladios-node --name your-name --chain gladios --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0' --warehouse http://api.aresprotocol.io  --validator
+docker run -d --name ares_gladios -p 9944:9944 -p 30333:30333 -p 9933:9933 aresprotocollab/ares_gladios:latest gladios-node --name your-name --chain gladios --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0' --warehouse http://api.aresprotocol.io  --validator
 ```
 
 #### (Пример установки) вместо "your-name" вводите свои данные "ares_username_BSC address"
 ```
-docker run -d --name ares_gladios -p 9944:9944 -v `pwd`/ares-chain-data:/data aresprotocollab/ares_gladios:latest gladios-node --name ares_СryptoHelp2_0x782293a6ABA77E8dD4B18E35FA7eE022BD0c2cf8 --chain gladios --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0' --warehouse http://api.aresprotocol.io  --validator
+docker run -d --name ares_gladios -p 9944:9944 -p 30333:30333 -p 9933:9933 aresprotocollab/ares_gladios:latest gladios-node --name Ares_СryptoHelp_0x982293a6ABA77E8dD4B18E35FA7eE022BD0c2ce9 --chain gladios --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0' --warehouse http://api.aresprotocol.io  --validator
 ```
 
 #### Посмотреть логи
